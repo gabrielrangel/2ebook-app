@@ -6,7 +6,7 @@ import { ncp } from "ncp";
 const EPUB_TEMPLATE_DIR = process.env.EPUB_TEMPLATE_DIR;
 
 export class EpubDir {
-  protected readonly id: string;
+  public readonly id: string;
   protected readonly path: string;
   protected loadPromise: Promise<void>;
 

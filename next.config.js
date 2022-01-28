@@ -4,6 +4,7 @@ const { resolve, join } = require("path");
 const nextConfig = {
   reactStrictMode: true,
   env: {
+    CACHE_DIR: resolve(__dirname, "./.next/cache/api/epub"),
     EPUB_TEMPLATE_DIR: resolve(__dirname, "template/epub"),
     EPUB_ASSETS_RELATIVE_PATH: "OEBPS",
     EPUB_TEXT_RELATIVE_PATH: join("OEBPS", "text"),

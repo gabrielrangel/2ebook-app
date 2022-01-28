@@ -1,0 +1,26 @@
+@page {
+  margin: 5pt;
+}
+
+.title-page {
+  width: 100%;
+  height: 100%;
+}
+
+.title-page section {
+  width: 100%;
+  position: fixed;
+  top: 10%;
+}
+
+.title-page section > *,
+.title-page footer > * {
+  display: block;
+  text-align: center;
+}
+
+.title-page footer {
+  width: 100%;
+  position: fixed;
+  bottom: 10%;
+}

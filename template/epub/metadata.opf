@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>Unknown</dc:title>
+    <dc:creator opf:role="aut" opf:file-as="Schember, John">John Schember</dc:creator>
+    <dc:identifier opf:scheme="uuid" id="uuid_id">4245b86c-404c-4e66-9a54-51421c0e78b1</dc:identifier>
+    <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (5.35.0) [https://calibre-ebook.com]</dc:contributor>
+    <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+    <dc:identifier opf:scheme="calibre">4245b86c-404c-4e66-9a54-51421c0e78b1</dc:identifier>
+    <meta name="calibre:author_link_map" content="{&quot;John Schember&quot;: &quot;&quot;}"/>
+    <meta name="calibre:timestamp" content="2022-01-25T23:45:47.350000+00:00"/>
+    <meta name="calibre:title_sort" content="Desconhecido"/>
+  </metadata>
+  <manifest>
+    <item id="start" href="OEBPS/text/start.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="css" href="OEBPS/css/style.css" media-type="text/css" />
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="start"/>
+  </spine>
+  <guide/>
+</package>

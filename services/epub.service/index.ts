@@ -8,8 +8,8 @@ import { AxiosResponse } from "axios";
 import archiver from "archiver";
 import { createWriteStream, rmdirSync } from "fs";
 
-const OEBPS_DIR = process.env.EPUB_ASSETS_RELATIVE_PATH || "OEBPS";
-const TEXT_DIR = process.env.EPUB_TEXT_RELATIVE_PATH || join(OEBPS_DIR, "text");
+const OEBPS_DIR = process.env.EPUB_ASSETS_RELATIVE_PATH;
+const TEXT_DIR = process.env.EPUB_TEXT_RELATIVE_PATH;
 
 export class Epub extends EpubDir {
   private xml?: EpubXML;
@@ -34,7 +34,10 @@ export class Epub extends EpubDir {
       return this.addHtmlFile(options);
     }
 
+    if (TEXT_DIR === undefined) throw new Error("Undefined env variable: TEXT_DIR");
+
     const html = await this.html.create(options);
+
     const item = this.xml.addItem(TEXT_DIR, "application/xhtml+xml");
 
     if (!html) throw new Error("Invalid Input");
@@ -57,6 +60,10 @@ export class Epub extends EpubDir {
       await this.ready();
       return this.handleWriteAssetStream(element, response);
     }
+
+    if (TEXT_DIR === undefined) throw new Error("Undefined env variable: TEXT_DIR");
+    if (OEBPS_DIR === undefined) throw new Error("Undefined env variable: OEBPS_DIR");
+
     const contentType = response.headers["content-type"];
     if (contentType === undefined) throw new Error("Invalid response");
 

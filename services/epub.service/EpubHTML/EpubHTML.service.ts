@@ -7,8 +7,8 @@ export class EpubHTML {
   private fromURL = async (url: string) => {
     return await axios.get(url).then(
       (response) => this.fromString(response.data, url),
-      (reason) => {
-        throw new Error(reason);
+      (_) => {
+        throw new Error(`Unprocessed url: ${url}`);
       }
     );
   };

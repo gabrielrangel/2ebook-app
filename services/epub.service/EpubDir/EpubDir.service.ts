@@ -3,8 +3,7 @@ import { join, dirname, resolve } from "path";
 import { v4 as uuid } from "uuid";
 import { ncp } from "ncp";
 
-const EPUB_TEMPLATE_DIR =
-  process.env.EPUB_TEMPLATE_DIR || resolve(__dirname, "../../../template/epub");
+const EPUB_TEMPLATE_DIR = process.env.EPUB_TEMPLATE_DIR;
 
 export class EpubDir {
   protected readonly id: string;
@@ -13,11 +12,13 @@ export class EpubDir {
 
   constructor(dir: string) {
     this.id = uuid();
-    this.path = join(dir, this.id);
+    this.path = resolve(dir, this.id);
     this.mkSubDirIfNotExists(this.path);
-    this.loadPromise = new Promise<void>((resolve, reject) =>
-      ncp(EPUB_TEMPLATE_DIR, this.path, (error) => (error ? reject(error) : resolve()))
-    );
+    this.loadPromise = new Promise<void>(async (resolve, reject) => {
+      return EPUB_TEMPLATE_DIR === undefined
+        ? reject(new Error("Undefined env variable: EPUB_TEMPLATE_DIR"))
+        : ncp(EPUB_TEMPLATE_DIR, this.path, (error) => (error ? reject(error) : resolve()));
+    });
   }
 
   ready = () =>

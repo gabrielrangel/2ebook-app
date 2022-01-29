@@ -3,7 +3,7 @@ import * as handlers from "./handlers";
 import { State, Action, Value } from "./types";
 
 function ConverterReducer(state: State, action: Action) {
-  return handlers["add"]?.(state, action) ?? state;
+  return handlers[action.type]?.(state, action) ?? state;
 }
 
 const initialState: State = { count: 1, links: [""] };

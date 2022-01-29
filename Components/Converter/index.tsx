@@ -1,12 +1,28 @@
+import { ChangeEvent, useCallback } from "react";
 import { useConverterContext } from "../../context/converter/converterContext";
+import { Action } from "../../context/converter/types";
 
 export default function Converter() {
   const { state, dispatch } = useConverterContext();
+
+  const onInputChangeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>, index: number) => {
+      dispatch({ type: "edit", value: { link: e.target.value, index } });
+    },
+    [dispatch]
+  );
+
   return (
     <div>
-      <div>{state.count}</div>
-      <button onClick={() => dispatch({ type: "add", value: { link: "" } })}>+</button>
-      <button onClick={() => dispatch({ type: "remove", value: { link: "" } })}>-</button>
+      <>
+        {state.links.map((link, i) => (
+          <div key={i} className="input">
+            <input value={link} onChange={(e) => onInputChangeHandler(e, i)} />
+            <button onClick={() => dispatch({ type: "remove", value: { index: i } })}>-</button>
+          </div>
+        ))}
+      </>
+      <button onClick={() => dispatch({ type: "add" } as Action)}>+</button>
     </div>
   );
 }

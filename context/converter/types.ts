@@ -5,12 +5,12 @@ export interface State {
   links: string[];
 }
 
-export interface Action {
-  type: "add" | "remove";
-  value: { link: string };
-}
-
 export interface Value {
   state: State;
   dispatch: Dispatch<Action>;
+}
+
+export interface Action {
+  type: "add" | "remove" | "edit";
+  value: { link?: string; index?: number };
 }

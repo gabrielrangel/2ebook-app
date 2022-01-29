@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../Assets/Styles/Home.module.css";
 import { Paper } from "@mui/material";
-import ConverterContextProvider from "Services/Context/converter/converterContext";
+import ConverterContextProvider from "Services/Context/Converter";
 
 const Home: NextPage = () => {
   return (

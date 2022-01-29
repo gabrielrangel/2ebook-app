@@ -1,12 +1,9 @@
 import { useReducer, createContext, FunctionComponent, useContext, useMemo } from "react";
-import * as handlers from "./handlers";
-import { State, Action, Value } from "./types";
 
-function ConverterReducer(state: State, action: Action) {
-  return handlers[action.type]?.(state, action) ?? state;
-}
+import { State, ConverterReducer, Value } from "../../Reducer/Converter";
 
 const initialState: State = { count: 1, links: [""] };
+
 const ConverterContext = createContext<Value>({} as Value);
 
 export const ConverterContextProvider: FunctionComponent = ({ children }) => {

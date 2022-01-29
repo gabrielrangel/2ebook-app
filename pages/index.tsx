@@ -3,10 +3,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import ConverterContextProvider from "../context/converter/converterContext";
+import Button from "@mui/material/Button";
+import { Paper } from "@mui/material";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <Paper className={styles.container}>
       <Head>
         <title>2ebook</title>
         <meta name="description" content="Generate ebook from urls" />
@@ -16,7 +18,7 @@ const Home: NextPage = () => {
       <ConverterContextProvider>
         <Converter />
       </ConverterContextProvider>
-    </div>
+    </Paper>
   );
 };
 

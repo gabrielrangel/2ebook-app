@@ -1,4 +1,4 @@
-import { Epub } from "services/epub.service";
+import { Epub } from "Services/epub.service";
 
 const CACHE_DIR = process.env.CACHE_DIR;
 

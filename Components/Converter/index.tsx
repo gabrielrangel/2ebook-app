@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback } from "react";
-import { useConverterContext } from "../../context/converter/converterContext";
-import { Action } from "../../context/converter/types";
+import { useConverterContext } from "Services/Context/converter/converterContext";
+import { Action } from "Services/Context/converter/types";
 
 export default function Converter() {
   const { state, dispatch } = useConverterContext();

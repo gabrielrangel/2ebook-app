@@ -1,45 +1,15 @@
 import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ContentStep from "./ConverterContentStep";
+import { Stack } from "@mui/material";
+import ConverterBody from "./ConverterBody";
+import ConverterHeader from "./ConverterHeader";
+import ConverterFooter from "./ConverterFooter";
 
 export default function Converter() {
   return (
-    <>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography variant="h4" component={"h2"}>
-            Content
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <ContentStep />
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
-
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </>
+    <Stack spacing={1}>
+      <ConverterHeader />
+      <ConverterBody />
+      <ConverterFooter />
+    </Stack>
   );
 }

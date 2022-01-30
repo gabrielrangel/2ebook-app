@@ -1,0 +1,8 @@
+import { LinearProgress } from "@mui/material";
+import React from "react";
+
+export const ConverterFooter = () => {
+  return <LinearProgress sx={{ my: "5vh" }} variant="determinate" value={50} />;
+};
+
+export default ConverterFooter;

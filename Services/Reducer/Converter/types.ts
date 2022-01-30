@@ -11,6 +11,6 @@ export interface Value {
 }
 
 export interface Action {
-  type: "add" | "remove" | "edit";
+  type: "add" | "remove" | "edit" | "removeAll";
   value: { link?: string; index?: number };
 }

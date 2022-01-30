@@ -10,7 +10,7 @@ import { Header } from "Components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Container sx={{ minHeight: "100vh" }}>
+    <Container sx={{ minHeight: "1vh" }}>
       <Header />
       <Component {...pageProps} />
     </Container>

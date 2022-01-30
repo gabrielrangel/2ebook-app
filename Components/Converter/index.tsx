@@ -1,28 +1,45 @@
-import { ChangeEvent, useCallback } from "react";
-import { useConverterContext } from "Services/Context/Converter";
-import { Action } from "Services/Reducer/Converter";
+import * as React from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ContentStep from "./ContentStep";
 
 export default function Converter() {
-  const { state, dispatch } = useConverterContext();
-
-  const onInputChangeHandler = useCallback(
-    (e: ChangeEvent<HTMLInputElement>, index: number) => {
-      dispatch({ type: "edit", value: { link: e.target.value, index } });
-    },
-    [dispatch]
-  );
-
   return (
-    <div>
-      <>
-        {state.links.map((link, i) => (
-          <div key={i} className="input">
-            <input value={link} onChange={(e) => onInputChangeHandler(e, i)} />
-            <button onClick={() => dispatch({ type: "remove", value: { index: i } })}>-</button>
-          </div>
-        ))}
-      </>
-      <button onClick={() => dispatch({ type: "add" } as Action)}>+</button>
-    </div>
+    <>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography variant="h4" component={"h2"}>
+            Content
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ContentStep />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Accordion 2</Typography>
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </>
   );
 }

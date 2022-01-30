@@ -1,7 +1,7 @@
-import {State, Action, initialState} from "../../Converter"
+import { State, Action, initialState } from "../../Converter";
 
 export function removeAll(state: State, action: Action) {
-  return initialState;
+  return [...initialState];
 }
 
 export default removeAll;

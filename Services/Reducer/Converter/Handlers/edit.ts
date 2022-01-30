@@ -1,12 +1,6 @@
 import { State, Action } from "../types";
 
-export function edit(state: State, { value }: Action) {
-  const links = [...state.links];
-  const { index, link } = value;
-
-  if (link && index !== undefined && links[index] !== undefined) {
-    links[index] = link;
-    return { ...state, links };
-  }
+export function edit(state: State, { type, index, ...link }: Action) {
+  return state.map((l, i) => (i === index ? link : l));
 }
 export default edit;

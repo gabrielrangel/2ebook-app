@@ -21,25 +21,25 @@ export const ContentStep = () => {
   const { state, dispatch } = useConverterContext();
 
   const addRowHandler = useCallback(() => {
-    dispatch({ type: "add", value: {} });
+    dispatch({ type: "add" });
   }, [dispatch]);
 
   const editRowHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => {
-      dispatch({ type: "edit", value: { index, link: e.target.value } });
+      dispatch({ type: "edit", index, url: e.target.value });
     },
     [dispatch]
   );
 
   const removeRowHandler = useCallback(
     (index: number) => {
-      dispatch({ type: "remove", value: { index } });
+      dispatch({ type: "remove", index });
     },
     [dispatch]
   );
 
   const removeAllHandler = useCallback(() => {
-    dispatch({ type: "removeAll", value: {} });
+    dispatch({ type: "removeAll" });
   }, [dispatch]);
 
   return (
@@ -65,25 +65,23 @@ export const ContentStep = () => {
       </TableHead>
 
       <TableBody>
-        {state.links.map((link, i) => (
+        {state.map(({ url }, i) => (
           <TableRow key={i}>
             <TableCell>
               <TextField
                 fullWidth
-                value={link}
+                value={url}
                 onChange={(e) => editRowHandler(e, i)}
               />
             </TableCell>
-            {link && (
-              <>
-                <TableCell></TableCell>
-                <TableCell>
-                  <IconButton color="error" onClick={() => removeRowHandler(i)}>
-                    <ClearIcon />
-                  </IconButton>
-                </TableCell>
-              </>
-            )}
+            <TableCell></TableCell>
+            <TableCell>
+              {url && (
+                <IconButton color="error" onClick={() => removeRowHandler(i)}>
+                  <ClearIcon />
+                </IconButton>
+              )}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

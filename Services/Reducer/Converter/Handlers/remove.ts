@@ -1,8 +1,7 @@
 import { State, Action } from "../types";
 
-export function remove(state: State, action: Action) {
-  const links = state.links.filter((_, i) => i !== action.value.index);
-  return { ...state, links, count: links.length };
+export function remove(state: State, { index }: Action) {
+  return state.filter((_, i) => i !== index);
 }
 
 export default remove;

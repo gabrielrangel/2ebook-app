@@ -1,4 +1,1 @@
-export * from "./add";
-export * from "./remove";
-export * from "./edit";
-export * from "./removeAll"
+export * as link from "./Link";

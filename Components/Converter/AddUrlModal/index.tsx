@@ -22,7 +22,7 @@ export const AddUrlModal = () => {
   }, [setOpen]);
 
   const handleClose = (persist: boolean) => {
-    persist && dispatch({ type: "add", url });
+    persist && dispatch({ type: "add", target: "link", link: { url } });
     setOpen(false);
   };
 

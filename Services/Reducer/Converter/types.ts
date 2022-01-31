@@ -3,8 +3,11 @@ import { Dispatch } from "react";
 export interface Link {
   url?: string;
 }
+
+export type Step = number;
 export interface State {
   links: Link[];
+  step?: Step;
 }
 
 export interface Value {
@@ -13,8 +16,9 @@ export interface Value {
 }
 
 export interface Action {
-  type: "add" | "remove" | "edit" | "removeAll";
-  target: "link";
+  target: "link" | "step";
+  type: "add" | "remove" | "edit" | "removeAll" | "set";
   index?: number;
   link?: Link;
+  step?: Step;
 }

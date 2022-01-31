@@ -5,9 +5,7 @@ import ConverterContextProvider from "Services/Context/Converter";
 const Home = () => {
   return (
     <Paper elevation={0}>
-      <ConverterContextProvider>
-        <Converter />
-      </ConverterContextProvider>
+      <Converter />
     </Paper>
   );
 };

@@ -1,4 +1,4 @@
-import { State, Action } from "../../types";
+import { Action, State } from "..";
 
 export function add(state: State, { link }: Action) {
   const { links } = state;

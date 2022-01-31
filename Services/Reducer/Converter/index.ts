@@ -1,10 +1,18 @@
-import * as handlers from "./Handlers";
-import { State, Action, Link } from "./types";
+import linkReducer from "./LinkReducer";
+import stepReducer from "./StepReducer";
+import { State, Action } from "./types";
 
 export * from "./types";
 
-export const initialState = { links: [] } as State;
+export const initialState = { links: [], step: 0 } as State;
 
 export function ConverterReducer(state: State, action: Action) {
-  return handlers[action.target][action.type]?.(state, action) ?? state;
+  switch (action.target) {
+    case "link":
+      return linkReducer(state, action);
+    case "step":
+      return stepReducer(state, action);
+    default:
+      return { ...state };
+  }
 }

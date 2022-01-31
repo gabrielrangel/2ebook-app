@@ -9,7 +9,7 @@ export const ConverterFooter = () => {
     <LinearProgress
       sx={{ my: "5vh" }}
       variant="determinate"
-      value={((state.step ?? 0) / ConverterSteps.length) * 100}
+      value={(((state.step ?? 0) + 1) / ConverterSteps.length) * 100}
     />
   );
 };

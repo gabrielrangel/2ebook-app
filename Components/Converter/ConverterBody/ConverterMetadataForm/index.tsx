@@ -1,5 +1,10 @@
+import { Card, CardContent, TextField } from "@mui/material";
 import React from "react";
 
 export const ConverterMetadataForm = () => {
-  return <div>true</div>;
+  return (
+    <Card variant="outlined" sx={{ height: "100%" }}>
+      <CardContent></CardContent>
+    </Card>
+  );
 };

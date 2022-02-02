@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import { useConverterContext } from "Services/Context/Converter";
+import { useLinkCollectionContext } from "Services/Context/Converter/LinkCollection";
 
 export const AddUrlModal = () => {
-  const { dispatch } = useConverterContext();
+  const { dispatchLinks } = useLinkCollectionContext();
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState("");
 
@@ -22,7 +22,7 @@ export const AddUrlModal = () => {
   }, [setOpen]);
 
   const handleClose = (persist: boolean) => {
-    persist && dispatch({ type: "add", target: "link", link: { url } });
+    persist && dispatchLinks({ type: "add", target: "link", link: { url } });
     setOpen(false);
   };
 

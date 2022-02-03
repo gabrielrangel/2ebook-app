@@ -1,9 +1,9 @@
-import { Link, LinkListDispatchAction, LinkListState } from "./";
+import { Link, LinkListActionInterface, LinkListStateInterface } from "./";
 
 export function add(
-  links: LinkListState,
-  { link }: LinkListDispatchAction
-): LinkListState {
+  links: LinkListStateInterface,
+  { link }: LinkListActionInterface
+): LinkListStateInterface {
   return [...links, link] as Link[];
 }
 

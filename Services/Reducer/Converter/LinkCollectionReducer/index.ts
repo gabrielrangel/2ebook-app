@@ -2,14 +2,14 @@ import { add } from "./add";
 import { remove } from "./remove";
 import { edit } from "./edit";
 import { removeAll } from "./removeAll";
-import { LinkListDispatchAction, LinkListState } from "./types";
+import { LinkListActionInterface, LinkListStateInterface } from "./types";
 
 export * from "./types";
 
 export function LinkCollectionReducer(
-  links: LinkListState,
-  action: LinkListDispatchAction
-): LinkListState {
+  links: LinkListStateInterface,
+  action: LinkListActionInterface
+): LinkListStateInterface {
   switch (action.type) {
     case "add":
       return add(links, action);

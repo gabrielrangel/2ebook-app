@@ -1,6 +1,9 @@
-import { LinkListState, LinkListDispatchAction } from "./";
+import { LinkListStateInterface, LinkListActionInterface } from "./";
 
-export function removeAll(state: LinkListState, _: LinkListDispatchAction) {
+export function removeAll(
+  state: LinkListStateInterface,
+  _: LinkListActionInterface
+) {
   return [];
 }
 

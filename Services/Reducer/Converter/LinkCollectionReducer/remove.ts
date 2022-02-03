@@ -1,8 +1,8 @@
-import { LinkListState, LinkListDispatchAction } from "./types";
+import { LinkListStateInterface, LinkListActionInterface } from "./types";
 
 export function remove(
-  links: LinkListState,
-  { index }: LinkListDispatchAction
+  links: LinkListStateInterface,
+  { index }: LinkListActionInterface
 ) {
   return links.filter((_, i) => i !== index);
 }

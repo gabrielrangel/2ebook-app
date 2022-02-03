@@ -1,6 +1,5 @@
 import { LinearProgress } from "@mui/material";
 import React from "react";
-import { ConverterSteps } from "../ConverterBody";
 
 export const ConverterFooter = () => {
   return (

@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import { useLinkCollectionContext } from "Services/Context/Converter";
+import { useConverterContext } from "Services/Context/Converter";
 
 export const AddUrlModal = () => {
-  const { links } = useLinkCollectionContext();
+  const { links } = useConverterContext();
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState("");
 

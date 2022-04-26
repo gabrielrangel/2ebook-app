@@ -27,7 +27,7 @@ export const ConverterContextProvider: FunctionComponent<
   return <>{ children }</>;
 };
 
-export function useLinkCollectionContext() {
+export function useConverterContext() {
   return useContext(ConverterContext);
 }
 

@@ -7,12 +7,6 @@ import {
 } from "react";
 
 import {
-  NavButtonsReducerInterface,
-  NavButtonsStateInterface,
-  NavButtonReducer,
-} from "Services/Reducer/Converter/NavigationButtonsReducer";
-
-import {
   LinkCollectionReducer,
   LinkListReducerInterface,
   LinkListStateInterface,
@@ -30,26 +24,7 @@ const ConverterContext = createContext<ConverterLinkListContextValue>(
 export const ConverterContextProvider: FunctionComponent<
   ConverterLinkListContextProps
 > = ({ children, links: initialLinks, navButtons: initialNavButtons }) => {
-  const links = useReducer<LinkListReducerInterface>(
-    LinkCollectionReducer,
-    initialLinks ?? ([] as LinkListStateInterface)
-  );
-
-  const navButtons = useReducer<NavButtonsReducerInterface>(
-    NavButtonReducer,
-    initialNavButtons ?? ({} as NavButtonsStateInterface)
-  );
-
-  const value: ConverterLinkListContextValue = useMemo(
-    () => ({ links, navButtons }),
-    [links, navButtons]
-  );
-
-  return (
-    <ConverterContext.Provider value={value}>
-      {children}
-    </ConverterContext.Provider>
-  );
+  return <>{ children }</>;
 };
 
 export function useLinkCollectionContext() {

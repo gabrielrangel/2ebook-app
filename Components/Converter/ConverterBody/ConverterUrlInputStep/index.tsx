@@ -21,14 +21,14 @@ export const ConverterUrlInputStep: FunctionComponent = () => {
   const [rows, setRows] = useState<Row[]>([] as Row[]);
   const { links } = useLinkCollectionContext();
 
-  useEffect(() => {
-    const [state] = links;
-    setRows(state.map(({ url = "" }, id) => ({ url, id })));
-  }, [links, setRows]);
+  // useEffect(() => {
+  //   const [state] = links;
+  //   setRows(state.map(({ url = "" }, id) => ({ url, id })));
+  // }, [links, setRows]);
 
   return (
     <DataGrid
-      rows={rows}
+      rows={[]}
       columns={columns}
       pageSize={5}
       rowsPerPageOptions={[5]}

@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
-import { ConverterMetadataForm } from "./ConverterMetadataForm";
-import ConverterUrlInputStep from "./ConverterUrlInputStep";
+import React from "react";
+import ConverterConfig from "config/converter";
+import { useConverterContext } from "Hooks/Converter/Context";
 
-export const ConverterSteps = [
-  () => <ConverterUrlInputStep />,
-  () => <ConverterMetadataForm />,
-];
+const { links } = ConverterConfig;
 
 export const ConverterBody = () => {
+  const { stepsReducer } = useConverterContext();
+  const [{ curStep }] = stepsReducer;
+  const CurrentLink = links[curStep];
+
   return (
-    <div style={{ height: 400, width: "100%" }}>{ConverterSteps[0]()}</div>
+    <div style={{ height: 400, width: "100%" }}>
+      <CurrentLink />
+    </div>
   );
 };
 

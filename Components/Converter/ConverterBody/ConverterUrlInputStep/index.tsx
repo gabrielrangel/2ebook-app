@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { useConverterContext } from "Services/Context/Converter";
+import { useConverterContext } from "Hooks/Converter/Context";
 
 const columns: GridColDef[] = [
   { field: "index", headerName: "ID", width: 90, hide: true },
@@ -18,14 +18,6 @@ interface Row {
 }
 
 export const ConverterUrlInputStep: FunctionComponent = () => {
-  const [rows, setRows] = useState<Row[]>([] as Row[]);
-  const { links } = useConverterContext();
-
-  // useEffect(() => {
-  //   const [state] = links;
-  //   setRows(state.map(({ url = "" }, id) => ({ url, id })));
-  // }, [links, setRows]);
-
   return (
     <DataGrid
       rows={[]}
